@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="imgcontainer">
+            <div class="leftbtn">
+                <img src="images/back.png" class="leftimg">
+            </div>
+            <div class="imgbox">
+                <img src="images/1.jpg" class="image">
+            </div>
+            <div class="rightbtn">
+                <img src="images/next.png" class="rightimg">
+            </div>
+        </div>
+    </div>
+<script>
+
+
+let leftbtn=document.querySelector('.leftbtn');
+let rightbtn=document.querySelector('.rightbtn');
+let images=["images/1.jpg",'images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg','images/6.jpg'];
+let image=document.querySelector('.image');
+let index=0;
+
+function updateimg(){
+    image.src=images[index]
+}
+rightbtn.addEventListener('click',()=>{
+    index+=1;
+    if(index>=0 && index<images.length){
+        updateimg()
+    }else{
+        index=0;
+        updateimg()
+    }
+});
+
+leftbtn.addEventListener('click',()=>{
+    index-=1;
+    if(index>=0 && index<images.length){
+        updateimg()
+    }else{
+        index=images.length-1;
+        updateimg()
+    }  
+});
+
+</script>
+</body>
+</html>
